@@ -1,7 +1,9 @@
-import { StyleSheet } from "react-native";
+import styled from 'styled-components/native';
+import { LinearGradient } from 'expo-linear-gradient';
+import theme from '../../theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
-})
+const { secondary80, secondary100 } = theme.colors;
+
+export const Container = styled(LinearGradient).attrs({ colors: [secondary80, secondary100] })`
+    flex: 1;
+`;

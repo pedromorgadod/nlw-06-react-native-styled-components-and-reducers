@@ -1,27 +1,32 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../global/styles/theme';
+import { Feather as FeatherIcon } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native';
+import theme from '../../theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 24,    
-  },
-  content: {
-    flex: 1,
-    justifyContent: 'center',
-    marginLeft: 20
-  },
-  title: {
-    fontFamily: theme.fonts.title700,
-    color: theme.colors.heading,
-    fontSize: 18,
-    marginBottom: 4,
-  },
-  type: {
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.highlight,
-    fontSize: 13,
-  }
-});
+export const Container = styled(TouchableOpacity).attrs({ activeOpacity: 0.7 })`
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 24px;
+`;
+
+export const Content = styled.View`
+    flex: 1;
+    justify-content: center;
+    margin-left: 20px;
+`;
+
+export const Title = styled.Text`
+    font-family: ${theme.fonts.title700};
+    color: ${theme.colors.heading};
+    font-size: 18px;
+    margin-bottom: 4px;
+`;
+
+export const Type = styled.Text`
+    font-family: ${theme.fonts.text400};
+    color: ${theme.colors.highlight};
+    font-size: 13px;
+`;
+
+export const Feather = styled(FeatherIcon).attrs({ name: 'chevron-right', color: theme.colors.heading, size: 24 })``;

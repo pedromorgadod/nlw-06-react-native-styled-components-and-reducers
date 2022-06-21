@@ -1,30 +1,33 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../global/styles/theme';
+import styled from 'styled-components/native';
+import theme from '../../theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  title: {
-    fontFamily: theme.fonts.title700,
-    color: theme.colors.heading,
-    fontSize: 18
-  },
-  nameStatus: {
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.highlight,
-    fontSize: 13
-  },
-  status: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  bulletStatus: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginRight: 9
-  }
-});
+export const Container = styled.View`
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+`;
+
+export const Status = styled.View`
+    flex-direction: row;
+    align-items: center;
+`;
+
+export const StatusBullet = styled.View`
+    width: 8;
+    height: 8;
+    border-radius: 4;
+    margin-right: 9;
+`;
+
+export const StatusName = styled.View`
+    font-family: ${theme.fonts.text400};
+    color: ${theme.colors.highlight};
+    font-size: 13px;
+`;
+
+export const Title = styled.Text`
+    width: 8;
+    height: 8;
+    border-radius: 4;
+    margin-right: 9;
+`;

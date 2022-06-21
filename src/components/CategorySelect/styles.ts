@@ -1,10 +1,7 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../global/styles/theme';
+import styled from 'styled-components/native';
 
-export const styles = StyleSheet.create({
-  container: {
-    minHeight: 120,
-    maxHeight: 120,
-    paddingLeft: 24,
-  },
-});
+export const Container = styled.ScrollView`
+    min-height: 120px;
+    max-height: 120px;
+    padding-left: 24px;
+`;

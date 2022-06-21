@@ -1,21 +1,21 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../global/styles/theme';
+import styled from 'styled-components/native';
+import theme from '../../theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 100
-  },
-  overlay: {
-    flex: 1,
-    backgroundColor: theme.colors.overlay
-  },
-  bar: {
-    width: 39,
-    height: 2,
-    borderRadius: 2,
-    backgroundColor: theme.colors.secondary30,
-    alignSelf: 'center',
-    marginTop: 13,
-  }
-});
+export const Overlay = styled.View`
+    flex: 1;
+    background-color: ${theme.colors.overlay};
+`;
+
+export const Container = styled.View`
+    flex: 1;
+    margin-top: 90px;
+`;
+
+export const Bar = styled.View`
+    width: 39px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: ${theme.colors.secondary30};
+    align-self: center;
+    margin-top: 13px;
+`;

@@ -1,53 +1,40 @@
 import React from 'react';
-import { View, Text, Alert } from 'react-native';
+import { Alert, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
-import { useAuth } from '../../hooks/auth';
+import useAuth from '../../hooks/useAuth';
 
-import { Avatar } from '../Avatar';
-import { styles } from './styles';
+import Avatar from '../Avatar';
+import { Container, User, Greeting, UserName, Message } from './styles';
 
-export function Profile() {
-  const { user, singOut } = useAuth();
+export default function Profile() {
+    const { state, signOut } = useAuth();
 
-  function handleSignOut() {
-    Alert.alert('Logout', 'Deseja sair do GamePlay?',
-    [
-      {
-        text: 'Não',
-        style: 'cancel'
-      },
-      {
-        text: 'Sim',
-        onPress: () => singOut()
-      }
-    ])
-  }
+    const handleSignOut = () => {
+        Alert.alert('Logout', 'Deseja sair do GamePlay?', [
+            {
+                text: 'Não',
+                style: 'cancel',
+            },
+            {
+                text: 'Sim',
+                onPress: () => signOut(),
+            },
+        ]);
+    };
 
-  return (
-    <View style={styles.container}>
-    
-      <RectButton onPress={handleSignOut}>
-        <Avatar urlImage={user.avatar} />
-      </RectButton>
-
-      <View>
-        <View style={styles.user}>
-          <Text style={styles.greeting}>
-            Olá,
-          </Text>
-          
-          <Text style={styles.username}>
-            { user.firstName }
-          </Text>
-        </View>
-
-        <Text style={styles.message}>
-          Hoje é dia de vitória
-        </Text>
-      </View>
-
-    </View>
-  )
-
+    return (
+        <Container>
+            <RectButton onPress={handleSignOut}>
+                <Avatar urlImage={state.user.avatar} />
+            </RectButton>
+            <View>
+                <User>
+                    <Greeting>Olá,</Greeting>
+                    <UserName>{state.user.firstName}</UserName>
+                </User>
+                <Message>Hoje é dia de vitória!</Message>
+            </View>
+        </Container>
+    );
 }

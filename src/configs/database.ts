@@ -1,9 +1,7 @@
-const DATABASE_NAME = '@gameplay';
+const databaseName = '@gameplay';
 
-const COLLECTION_USERS = `${DATABASE_NAME}:user`;
-const COLLECTION_APPOINTMENTS = `${DATABASE_NAME}:appointments`;
-
-export {
-  COLLECTION_USERS,
-  COLLECTION_APPOINTMENTS
-}
+export default {
+    database_name: databaseName,
+    collection_users: `${databaseName}:user`,
+    collection_appointments: `${databaseName}:appointments`,
+};

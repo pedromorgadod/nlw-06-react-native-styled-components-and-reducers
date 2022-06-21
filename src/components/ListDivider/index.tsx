@@ -1,24 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Container } from './styles';
 
-import { styles } from './styles';
+type ListDividerProps = {
+    centered?: boolean;
+};
 
-type Props = {
-  isCentered?: boolean;
+export default function ListDivider({ centered }: ListDividerProps) {
+    return <Container centered={centered} />;
 }
 
-export function ListDivider({ isCentered }: Props){
-  return (
-    <View 
-      style={[
-        styles.container,
-        isCentered ? {
-          marginVertical: 12,
-        } : {
-          marginTop: 2,
-          marginBottom: 31,
-        }
-      ]}
-    />
-  );
-}
+ListDivider.defaultProps = {
+    centered: false,
+};

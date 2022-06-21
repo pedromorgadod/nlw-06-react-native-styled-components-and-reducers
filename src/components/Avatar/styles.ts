@@ -1,17 +1,20 @@
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
+import { LinearGradient } from 'expo-linear-gradient';
+import theme from '../../theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    width: 49,
-    height: 49,
-    borderRadius: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 22
-  },
-  avatar: {
-    width: 46,
-    height: 46,
-    borderRadius: 8
-  }
-});
+const { secondary50, secondary70 } = theme.colors;
+
+export const Container = styled(LinearGradient).attrs({ colors: [secondary50, secondary70] })`
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 22px;
+`;
+
+export const AvatarImage = styled.Image`
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+`;

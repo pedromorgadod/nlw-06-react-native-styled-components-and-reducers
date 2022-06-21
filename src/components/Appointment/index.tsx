@@ -1,79 +1,70 @@
 import React from 'react';
-import { LinearGradient } from 'expo-linear-gradient';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
-import { View, Text } from 'react-native';
 
-import { theme } from '../../global/styles/theme';
-import { styles } from './styles';
-import PlayerSvg from '../../assets/player.svg';
-import CalendarSvg from '../../assets/calendar.svg';
-
-import { GuildProps } from '../Guild';
 import { GuildIcon } from '../GuildIcon';
-import { categories } from '../../utils/categories';
 
+import {
+    Category,
+    Container,
+    Content,
+    Date,
+    DateInfo,
+    Footer,
+    Header,
+    Player,
+    PlayersInfo,
+    PlayerSvg,
+    Title,
+} from './styles';
+
+import CalendarSvg from '../../assets/calendar.svg';
+import { GuildProps } from '../Guild';
+
+import categories from '../../utils/categories';
 
 export type AppointmentProps = {
-  id: string;
-  guild: GuildProps;
-  category: string;
-  date: string;
-  description: string;
-}
+    id: string;
+    guild: GuildProps;
+    category: number;
+    date: string;
+    description: string;
+};
 
 type Props = RectButtonProps & {
-  data: AppointmentProps;
-} 
+    data: AppointmentProps;
+};
 
 export function Appointment({ data, ...rest }: Props) {
-  const [category] = categories.filter(item => item.id === data.category);
-  const { owner } = data.guild;
-  const { primary, on, secondary50, secondary70 } = theme.colors;
+    const [category] = categories.filter((item) => item.id === data.category);
+    const { owner } = data.guild;
 
-  return (
-    <RectButton {...rest}>
-      <View style={styles.container}>
-        <LinearGradient 
-          style={styles.guildIconContainer}
-          colors={[secondary50, secondary70]}
-        >
-          <GuildIcon guildId={data.guild.id} iconId={data.guild.icon} />
-        </LinearGradient>
+    return (
+        <RectButton {...rest}>
+            <Container>
+                <GuildIcon guildId={data.guild.id} iconId={data.guild.icon} />
 
-        <View style={styles.content}>
-          <View style={styles.header}>
-            <Text style={styles.title}>
-              { data.guild.name }
-            </Text>
+                <Content>
+                    <Header>
+                        <Title>{data.guild.name}</Title>
 
-            <Text style={styles.category}>
-              { category.title }
-            </Text>
-          </View>
+                        <Category>{category.title}</Category>
+                    </Header>
 
-          <View style={styles.footer}>
-            <View style={styles.dateInfo}>
-              <CalendarSvg />
+                    <Footer>
+                        <DateInfo>
+                            <CalendarSvg />
 
-              <Text style={styles.date}>
-                { data.date }                
-              </Text>
-            </View>
+                            <Date>{data.date}</Date>
+                        </DateInfo>
 
-            <View style={styles.playersInfo}>
-              <PlayerSvg fill={ owner ? primary : on}/>
+                        <PlayersInfo>
+                            <PlayerSvg owner={owner} />
 
-              <Text style={[
-                styles.player, 
-                { color: owner ? primary : on }
-              ]}>
-                { owner ? 'Anfitrião' : 'Visitante' }
-              </Text>
-            </View>          
-          </View>
-        </View>
-      </View>
-    </RectButton>
-  )
-
+                            <Player owner={owner}>{owner ? 'Anfitrião' : 'Visitante'}</Player>
+                        </PlayersInfo>
+                    </Footer>
+                </Content>
+            </Container>
+        </RectButton>
+    );
 }

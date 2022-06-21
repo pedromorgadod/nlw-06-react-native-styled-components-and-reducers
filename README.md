@@ -8,11 +8,10 @@
  <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=E51C44&labelColor=0A1033" alt="NLW 06" />
 </p>
 
-
 ![cover](.github/cover.png?style=flat)
 
-
 ## 💻 Projeto
+
 Aplicativo para lhe ajudar a conectar-se e organiza o momento de diversão e jogar com os amigos. Crie grupos para jogar seus games favoritos com seus amigos com esse App que possui autenticação com Discord.
 
 ## ✨ Tecnologias
@@ -20,13 +19,14 @@ Aplicativo para lhe ajudar a conectar-se e organiza o momento de diversão e jog
 -   [ ] React Native
 -   [ ] Typescript
 -   [ ] Expo
--   [ ] Context API
+-   [ ] Context API com Reducers
 -   [ ] Async Storage
+-   [ ] Styled Components
 -   [ ] Vector Icons
 -   [ ] React Native Svg e Svg Transform
 -   [ ] Axios
 -   [ ] Gradient colors
--   [ ] OAuth2 Discord 
+-   [ ] OAuth2 Discord
 -   [ ] Expo Google Fonts
 -   [ ] React Navigation Stack
 -   [ ] React Native Gesture Handler
@@ -34,8 +34,7 @@ Aplicativo para lhe ajudar a conectar-se e organiza o momento de diversão e jog
 -   [ ] React Native Share
 -   [ ] Deep Link
 
-
-## :hammer_and_wrench: Features 
+## :hammer_and_wrench: Features
 
 -   [ ] Autenticação Social OAuth2 com servidor do Discord.
 -   [ ] Obtém perfil do usuário cadastro no Discord (username e avatar);
@@ -47,11 +46,9 @@ Aplicativo para lhe ajudar a conectar-se e organiza o momento de diversão e jog
 -   [ ] Permite redirecionar o usuário para o seu próprio servidor;
 -   [ ] Disponibiliza a função de Logout.
 
-
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/community/file/991338130828322960). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
-
 
 ## Executando o projeto
 
@@ -63,15 +60,14 @@ expo start
 ```
 
 Lembre-se de criar o seu App no servidor do Discord para obter as credencias de autenticação. Em seguida, defina no arquivo .env as configurações do seu App (remova o example do arquivo .env.example).
- 
- ```cl
+
+```cl
 REDIRECT_URI=
 SCOPE=
 RESPONSE_TYPE=
 CLIENT_ID=
 CDN_IMAGE=
 ```
-
 
 ## 📄 Licença
 

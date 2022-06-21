@@ -1,18 +1,17 @@
-import { StyleSheet } from 'react-native';
-import { theme } from '../../global/styles/theme';
+import { TextInput } from 'react-native';
+import styled from 'styled-components/native';
+import theme from '../../theme';
 
-export const styles = StyleSheet.create({
-  container: {
-    width: 48,
-    height: 48,
-    backgroundColor: theme.colors.secondary40,
-    color: theme.colors.heading,
-    borderRadius: 8,
-    fontFamily: theme.fonts.text400,
-    fontSize: 13,
-    marginRight: 4,
-    textAlign: 'center',
-    borderWidth: 1,
-    borderColor: theme.colors.secondary50
-  }
-});
+export const Container = styled(TextInput).attrs({ keyboardType: 'numeric' })`
+    width: 48px;
+    height: 48px;
+    background-color: ${theme.colors.secondary40};
+    color: ${theme.colors.heading};
+    border-radius: 8px;
+    font-family: ${theme.fonts.text400};
+    font-size: 13px;
+    margin-right: 4px;
+    text-align: center;
+    border-width: 1px;
+    border-color: ${theme.colors.secondary50};
+`;

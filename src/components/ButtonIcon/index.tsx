@@ -1,27 +1,19 @@
 import React from 'react';
-import { Text, Image, View } from 'react-native';
-import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
+import { RectButtonProps } from 'react-native-gesture-handler';
+import { Container, IconWrapper, Icon, Title } from './styles';
+import DiscordLogo from '../../assets/discord.png';
 
-import DiscordImg from '../../assets/discord.png';
-import { styles } from './styles';
+type ButtonIconProps = RectButtonProps & {
+    title: string;
+};
 
-type Props = RectButtonProps & {
-  title: string;
-}
-
-export function ButtonIcon({ title, ...rest } : Props){
-  return(
-    <RectButton 
-      style={styles.container} 
-      {...rest }
-    >
-      <View style={styles.iconWrapper}>
-        <Image source={DiscordImg} style={styles.icon} />
-      </View>
-
-      <Text style={styles.title}>
-        { title }
-      </Text>
-    </RectButton>
-  );
+export default function ButtonIcon({ title, ...rectButtonProps }: ButtonIconProps) {
+    return (
+        <Container {...rectButtonProps}>
+            <IconWrapper>
+                <Icon source={DiscordLogo} />
+            </IconWrapper>
+            <Title>{title}</Title>
+        </Container>
+    );
 }
